@@ -13,3 +13,5 @@ If you find this dashboard useful, feel free to shout me a coffee for all the la
 
 - BTC: 13QHePrFtKPY2axwRLVjEM6AjbbRvDSmP6
 - ETH: 0x61a11050DC156CBA3ec49B81FC4F368FBd112059
+
+Please note: This initial version is structured to support a single PT bot instance, not multiple.
