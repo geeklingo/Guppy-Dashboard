@@ -5,8 +5,9 @@ If you use Profit Trailer and want better reporting, then take a look at the too
 - mySQL
 - Grafana (either self-host or use their free/paid hosting)
 - PHP 7.x
+- Exchange APIs
 
-The files here are on the assumption that you are running on a Linux based system.
+The files here are on the assumption that you are running on a Linux based system. Installation instructions are in the <a href="https://github.com/geeklingo/Guppy-Dashboard/wiki">wiki</a>.
 
 If you find this dashboard useful, feel free to shout me a coffee for all the late nights that went into this:
 
