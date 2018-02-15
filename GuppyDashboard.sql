@@ -1,8 +1,12 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
 --
--- Host: miniwhales.net    Database: PT_DATA
+-- Host:     Database: PT_DATA
 -- ------------------------------------------------------
 -- Server version	5.7.21-0ubuntu0.16.04.1
+--
+-- Coffee donations to:
+-- BTC: 13QHePrFtKPY2axwRLVjEM6AjbbRvDSmP6
+-- ETH: 0x61a11050DC156CBA3ec49B81FC4F368FBd112059
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
