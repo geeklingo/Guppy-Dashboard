@@ -67,20 +67,6 @@
   "links": [],
   "panels": [
     {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 6,
-      "panels": [],
-      "repeat": null,
-      "title": "Guppy's Dashboard",
-      "type": "row"
-    },
-    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -91,13 +77,16 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 0
       },
       "hideTimeOverride": false,
       "id": 4,
       "legend": {
+        "alignAsTable": false,
         "avg": false,
         "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
         "max": false,
         "min": false,
         "show": true,
@@ -125,20 +114,14 @@
         {
           "alias": "",
           "format": "time_series",
-          "rawSql": "SELECT\n  UNIX_TIMESTAMP(checked) as time_sec,\n  value as value,\n  \"Portfolio Value\" as metric\nFROM portfolio_history\nORDER BY time_sec ASC\n",
-          "refId": "A"
-        },
-        {
-          "alias": "",
-          "format": "time_series",
-          "rawSql": "SELECT\n  UNIX_TIMESTAMP(checked) as time_sec,\n  ethValue as value,\n  \"G50 Token Value\" as metric\nFROM portfolio_history\nORDER BY time_sec ASC\n\n",
+          "rawSql": "SELECT UNIX_TIMESTAMP(soldDate) as time_sec, Profit as value, \"Profit\" as metrix\nFROM pt_sellLogData\nORDER BY time_sec ASC\n",
           "refId": "B"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Portfolio Balance",
+      "title": "Daily Profit Tracking",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -156,7 +139,7 @@
         {
           "decimals": null,
           "format": "short",
-          "label": "BTC",
+          "label": "% Profit",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -169,65 +152,23 @@
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
+          "show": false
         }
       ]
     },
     {
-      "columns": [],
-      "datasource": "${DS_PT_DATA}",
-      "description": "The current list of coins that Guppy is holding. Dust coins are excluded from this list.",
-      "fontSize": "100%",
+      "collapsed": false,
       "gridPos": {
-        "h": 12,
-        "w": 4,
+        "h": 1,
+        "w": 24,
         "x": 0,
-        "y": 10
+        "y": 9
       },
-      "id": 1,
-      "links": [],
-      "pageSize": null,
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 0,
-        "desc": false
-      },
-      "styles": [
-        {
-          "alias": "",
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 5,
-          "pattern": "BTC Equiv",
-          "type": "number",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "decimals": 2,
-          "pattern": "/.*/",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        }
-      ],
-      "targets": [
-        {
-          "alias": "",
-          "format": "table",
-          "rawSql": "SELECT\r\n     coin as \"Coin\", qty as \"Qty\", btc_value as \"BTC Equiv\"\r\nFROM\r\n     binance_holdings\r\nWHERE\r\n     btc_value > 0.008\r\nORDER BY\r\n     coin ASC",
-          "refId": "A"
-        }
-      ],
-      "title": "Current Holdings",
-      "transform": "table",
-      "type": "table"
+      "id": 6,
+      "panels": [],
+      "repeat": null,
+      "title": "Guppy's Dashboard",
+      "type": "row"
     },
     {
       "columns": [],
@@ -235,9 +176,9 @@
       "description": "Current HODL Bags",
       "fontSize": "100%",
       "gridPos": {
-        "h": 12,
+        "h": 6,
         "w": 16,
-        "x": 4,
+        "x": 0,
         "y": 10
       },
       "id": 14,
@@ -427,7 +368,7 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 20,
+        "x": 16,
         "y": 10
       },
       "id": 16,
@@ -509,7 +450,7 @@
         "h": 3,
         "w": 4,
         "x": 20,
-        "y": 13
+        "y": 10
       },
       "id": 21,
       "interval": null,
@@ -590,8 +531,8 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 20,
-        "y": 16
+        "x": 16,
+        "y": 13
       },
       "id": 20,
       "interval": null,
@@ -672,7 +613,7 @@
         "h": 3,
         "w": 4,
         "x": 20,
-        "y": 19
+        "y": 13
       },
       "id": 19,
       "interval": null,
@@ -739,7 +680,7 @@
         "h": 11,
         "w": 24,
         "x": 0,
-        "y": 22
+        "y": 16
       },
       "id": 10,
       "links": [],
@@ -893,7 +834,7 @@
           "refId": "A"
         }
       ],
-      "title": "Sell History",
+      "title": "Sell Log",
       "transform": "table",
       "type": "table"
     },
@@ -903,7 +844,7 @@
         "h": 4,
         "w": 24,
         "x": 0,
-        "y": 33
+        "y": 27
       },
       "id": 12,
       "links": [],
@@ -920,7 +861,7 @@
     "list": []
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-30d",
     "to": "now"
   },
   "timepicker": {
@@ -951,5 +892,5 @@
   "timezone": "browser",
   "title": "Guppy's Dashboard - GIT Version",
   "uid": "ZoEcVE3kk",
-  "version": 4
+  "version": 5
 }
