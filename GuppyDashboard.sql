@@ -1,12 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
 --
--- Host:     Database: PT_DATA
+-- Host: miniwhales.net    Database: PT_DATA
 -- ------------------------------------------------------
 -- Server version	5.7.21-0ubuntu0.16.04.1
---
--- Coffee donations to:
--- BTC: 13QHePrFtKPY2axwRLVjEM6AjbbRvDSmP6
--- ETH: 0x61a11050DC156CBA3ec49B81FC4F368FBd112059
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -50,6 +46,30 @@ CREATE TABLE `portfolio_history` (
   `ethValue` decimal(15,8) NOT NULL,
   `exchange` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`checked`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `pt_bbBuyLogData`
+--
+
+DROP TABLE IF EXISTS `pt_bbBuyLogData`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pt_bbBuyLogData` (
+  `BBLow` int(11) DEFAULT NULL,
+  `BBTrigger` int(11) DEFAULT NULL,
+  `positive` tinyint(4) DEFAULT NULL,
+  `BBHigh` int(11) DEFAULT NULL,
+  `currentValue` decimal(15,8) DEFAULT NULL,
+  `market` varchar(45) NOT NULL,
+  `profit` decimal(15,8) DEFAULT NULL,
+  `currentPrice` decimal(15,8) DEFAULT NULL,
+  `buyStrategy` varchar(45) DEFAULT NULL,
+  `volume` decimal(15,8) DEFAULT NULL,
+  `triggerValue` decimal(15,8) DEFAULT NULL,
+  `percChange` decimal(15,8) DEFAULT NULL,
+  PRIMARY KEY (`market`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -108,6 +128,7 @@ CREATE TABLE `pt_sellLogData` (
   `volume` float NOT NULL,
   `triggerValue` float NOT NULL,
   `percChange` float NOT NULL,
+  `usdval` decimal(15,8) DEFAULT NULL,
   PRIMARY KEY (`soldDate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -121,4 +142,4 @@ CREATE TABLE `pt_sellLogData` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-15 22:53:32
+-- Dump completed on 2018-02-19 22:05:10
